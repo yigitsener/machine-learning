@@ -12,10 +12,10 @@ import warnings
 warnings.filterwarnings("ignore")
 
 #Data Importing
-cust_1 = pd.read_csv("data/product-offer-data/customers_1.txt")
-cust_2 = pd.read_csv("data/product-offer-data/customers_2.txt")
-target = pd.read_excel("data/product-offer-data/return.xlsx")
-score_cust = pd.read_csv("data/product-offer-data/test_customers.txt")
+cust_1 = pd.read_csv("machine-learning/data/product-offer-data/customers_1.txt")
+cust_2 = pd.read_csv("machine-learning/data/product-offer-data/customers_2.txt")
+target = pd.read_excel("machine-learning/data/product-offer-data/return.xlsx")
+score_cust = pd.read_csv("machine-learning/data/product-offer-data/test_customers.txt")
 
 #Append cust_1 and cust_2
 customers = cust_1.append(cust_2,ignore_index=True)
