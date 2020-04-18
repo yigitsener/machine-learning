@@ -6,7 +6,7 @@ from sklearn import metrics
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df = pd.read_csv("DATA/Fish.csv")
+df = pd.read_csv("machine-learning/data/Fish.csv")
 
 print(df.info())
 print(df.head(7))
