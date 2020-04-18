@@ -84,7 +84,7 @@ def yeniurun():
 
     array_seti = np.array([np.array(veri_listesi)])
 
-    model = pickle.load(open("NEW_PRODUCT_PREDICTION/model.save", "rb"))
+    model = pickle.load(open("model.save", "rb"))
     sonuc = model.predict(array_seti)
 
     print("\nHesaplanıyor...")
