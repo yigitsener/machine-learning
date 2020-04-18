@@ -1,2 +1,2 @@
-# machine-learning
-Machine Learning
+# Machine Learning Tutorial
+Data of all models include "Data" folder.
