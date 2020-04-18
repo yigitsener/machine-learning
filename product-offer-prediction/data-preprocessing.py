@@ -7,10 +7,10 @@ warnings.filterwarnings("ignore")
 line = "-------------------------------------"
 
 #Data Importing
-cust_1 = pd.read_csv("NEW_PRODUCT_PREDICTION/DATA/customers_1.txt")
-cust_2 = pd.read_csv("NEW_PRODUCT_PREDICTION/DATA/customers_2.txt")
-target = pd.read_excel("NEW_PRODUCT_PREDICTION/DATA/return.xlsx")
-score_cust = pd.read_csv("NEW_PRODUCT_PREDICTION/DATA/test_customers.txt")
+cust_1 = pd.read_csv("machine-learning/data/product-offer-data/customers_1.txt")
+cust_2 = pd.read_csv("machine-learning/data/product-offer-data/customers_2.txt")
+target = pd.read_excel("machine-learning/data/product-offer-data/return.xlsx")
+score_cust = pd.read_csv("machine-learning/data/product-offer-data/test_customers.txt")
 
 #Append cust_1 and cust_2
 customers = cust_1.append(cust_2,ignore_index=True)
