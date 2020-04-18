@@ -1,0 +1,99 @@
+import numpy as np
+import time
+import warnings
+import pickle
+warnings.filterwarnings("ignore")
+
+def checkparam(prompt,konu):
+    if konu == "flag":
+        while True:
+            x = input(prompt)
+            if x.isdigit():
+                x = int(x)
+                break
+            else:
+                print("Geçersiz bir değer girdiniz.")
+        return x
+    elif konu == "multi":
+        while True:
+            y = input(prompt)
+            if y.isdigit():
+                y = int(y)
+                if y < 5:
+                    break
+                else:
+                    print("\n1 ile 4 arası bir değer giriniz\n")
+            else:
+                print("Geçersiz bir değer girdiniz.")
+        return y
+    elif konu == "string":
+        while True:
+            w = input(prompt)
+            if w == "e" or w == "h" or w == "k":
+                break
+            else:
+                print("\nBelirtilen değerlerden birisini giriniz\n")
+        return w
+    else:
+        print("Geçersiz bir değer girdiniz.")
+
+def yeniurun():
+    age = checkparam("Yaşınızı giriniz: ","flag")
+    income = checkparam("Gelirinizi giriniz: ","flag")
+    children = checkparam("Kaç çocuğunuz var:  ","flag")
+
+    bolge_input = checkparam("lütfen bir bolge seciniz\n"
+                             "INNER_CITY için 1'e\n"
+                             "RURAL için 2'e\n"
+                             "SUBURBAN için 3'e\n"
+                             "TOWN için 4'e basınız: ","multi")
+    if bolge_input == 1:
+        region = [1, 0, 0, 0]
+    elif bolge_input == 2:
+        region = [0, 1, 0, 0]
+    elif bolge_input == 3:
+        region = [0, 0, 1, 0]
+    elif bolge_input == 4:
+        region = [0, 0, 0, 1]
+    else:
+        print("Yalnış bir değer girdiniz yeniden deneyin.")
+
+    cinsiyet = {"e": 0, "k": 1}
+    cins = checkparam("cinsiyetiniz e/k: ","string")
+    gender = cinsiyet[cins]
+
+    medeni = {"e": 1, "h": 0}
+    evli = checkparam("Evlimisiniz e/h: ","string")
+    married = medeni[evli]
+
+    araba = {"e": 1, "h": 0}
+    arabasor = checkparam("Aracınız var mı e/h: ","string")
+    car = araba[arabasor]
+
+    urunbir = {"e": 1, "h": 0}
+    urbir = checkparam("Ürün 1 var mı e/h: ","string")
+    product1 = urunbir[urbir]
+
+    uruniki = {"e": 1, "h": 0}
+    uriki = checkparam("Ürün 2 var mı e/h: ","string")
+    product2 = uruniki[uriki]
+
+    veri_listesi = [age, income, children, gender, married, car, product1, product2]
+    for i in region:
+        veri_listesi.insert(3, i)
+
+    array_seti = np.array([np.array(veri_listesi)])
+
+    model = pickle.load(open("NEW_PRODUCT_PREDICTION/model.save", "rb"))
+    sonuc = model.predict(array_seti)
+
+    print("\nHesaplanıyor...")
+
+    time.sleep(1)
+
+    if sonuc == "NO":
+        print("\nÜrünü Almayacak")
+    else:
+        print("\nÜrünü Alabilir")
+
+yeniurun()
