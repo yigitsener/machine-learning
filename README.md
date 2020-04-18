@@ -1,2 +1,2 @@
 # Machine Learning Tutorial
-Data of all models include "Data" folder.
+Data of all models are find "Data" folder.
