@@ -26,7 +26,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Importing dataset
-dt = pd.read_csv("data/churn-dataset.csv")
+dt = pd.read_csv("machine-learning/data/churn-dataset.csv")
 
 # Remove RowNumber, CustomerId and Surnmae
 dt = dt.drop(columns=["RowNumber","CustomerId","Surname"])
